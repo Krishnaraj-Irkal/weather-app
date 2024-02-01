@@ -83,6 +83,7 @@ export default function Home() {
   const { isLoading, error, data, refetch } = useQuery<WeatherData>(
     "repoData",
     async () => {
+      console.log(process.env.NEXT_PUBLIC_WEATHER_KEY);
       const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?q=${place}&cnt=56&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`
       );
